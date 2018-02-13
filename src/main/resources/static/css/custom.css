@@ -1,0 +1,14 @@
+#navbar {
+    margin-top: 0%;
+}
+
+.movies {
+    float: right;
+    display: inline-flex;
+}
+
+.movie {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
