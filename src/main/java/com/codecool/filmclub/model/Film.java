@@ -4,47 +4,87 @@ public class Film {
 
     private String imdbID;
     private String Title;
-    private String year;
-    private String type;
-    private String poster;
+    private String Year;
+    private String Type;
+    private String Poster;
 
-    private char rated;
-    private String released;
-    private String runtime;
-    private String genre;
-    private String director;
-    private String writer;
-    private String actors;
-    private String plot;
-    private String language;
-    private String country;
+    private String Rated;
+    private String Released;
+    private String Runtime;
+    private String Genre;
+    private String Director;
+    private String Writer;
+    private String Actors;
+    private String Plot;
+    private String Language;
+    private String Country;
     private float imdbRating;
-
-    public Film() {
-
-    }
 
     public Film(String title, String year, String imdbID, String type, String poster) {
         this.Title = title;
-        this.year = year;
+        this.Year = year;
         this.imdbID = imdbID;
-        this.type = type;
-        this.poster = poster;
+        this.Type = type;
+        this.Poster = poster;
     }
 
-    public Film(String imdbID, String title, String year, String type, String poster, char rated, String released, String runtime, String genre, String director, String writer, String actors, String plot, String language, String country, float imdbRating) {
+    public Film(String imdbID, String title, String year, String type, String poster, String rated, String released, String runtime, String genre, String director, String writer, String actors, String plot, String language, String country, float imdbRating) {
         this(title, year, imdbID, type, poster);
-        this.rated = rated;
-        this.released = released;
-        this.runtime = runtime;
-        this.genre = genre;
-        this.director = director;
-        this.writer = writer;
-        this.actors = actors;
-        this.plot = plot;
-        this.language = language;
-        this.country = country;
+        this.Rated = rated;
+        this.Released = released;
+        this.Runtime = runtime;
+        this.Genre = genre;
+        this.Director = director;
+        this.Writer = writer;
+        this.Actors = actors;
+        this.Plot = plot;
+        this.Language = language;
+        this.Country = country;
         this.imdbRating = imdbRating;
+    }
+
+    public String getRated() {
+        return Rated;
+    }
+
+    public String getReleased() {
+        return Released;
+    }
+
+    public String getRuntime() {
+        return Runtime;
+    }
+
+    public String getGenre() {
+        return Genre;
+    }
+
+    public String getDirector() {
+        return Director;
+    }
+
+    public String getWriter() {
+        return Writer;
+    }
+
+    public String getActors() {
+        return Actors;
+    }
+
+    public String getPlot() {
+        return Plot;
+    }
+
+    public String getLanguage() {
+        return Language;
+    }
+
+    public String getCountry() {
+        return Country;
+    }
+
+    public float getImdbRating() {
+        return imdbRating;
     }
 
     public String getTitle() {
@@ -52,7 +92,7 @@ public class Film {
     }
 
     public String getYear() {
-        return year;
+        return Year;
     }
 
     public String getImdbID() {
@@ -60,10 +100,22 @@ public class Film {
     }
 
     public String getType() {
-        return type;
+        return Type;
     }
 
     public String getPoster() {
-        return poster;
+        return Poster;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + imdbID +
+                ", title='" + Title + '\'' +
+                ", year='" + Year + '\'' +
+                ", director='" + Director + '\'' +
+                ", actors='" + Actors + '\'' +
+                ", imdbRating='" + imdbRating + '\'' +
+                '}';
     }
 }

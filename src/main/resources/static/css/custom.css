@@ -1,11 +1,16 @@
-#navbar {
-    margin-top: 0%;
-}
+/*body {*/
+    /*background: no-repeat, fixed, center, url("https://www-tc.pbs.org/wgbh/nova/next/wp-content/uploads/2017/06/quantum-entanglement_2048x1152.jpg");*/
+/*}*/
 
-body {
-    background-color: yellowgreen;
-}
-
-#poster {
+#poster, #missing-poster{
     height: 230px;
+}
+
+.jumbotron {
+    margin-bottom: 15px;
+}
+
+#actors {
+    float: right;
+    display: inline-flex;
 }

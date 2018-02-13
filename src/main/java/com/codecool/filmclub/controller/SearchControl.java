@@ -24,11 +24,19 @@ public class SearchControl {
     }
 
 
-    @RequestMapping (value = "/search")
+    @GetMapping(value = "/search")
     public String renderFilms(Model model, @RequestParam("title") String title) {
         JsonObject resultList = filmService.searchFilm(title);
         List<Film> filmList = filmService.convertJsonToJavaObject(resultList);
         model.addAttribute("movieList", filmList);
         return "search-results";
+    }
+
+    @GetMapping(value = "/movies/{imdbID}")
+    public String renderMovieDetails(Model model, @PathVariable("imdbID") String imdbID) {
+        JsonObject jsonObject = filmService.getMovieDetails(imdbID);
+        Film movieDetails = filmService.convertJsonFilmToJavaFilm(jsonObject);
+        model.addAttribute("movieDetails", movieDetails);
+        return "movie-details";
     }
 }

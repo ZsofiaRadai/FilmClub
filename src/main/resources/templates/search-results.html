@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/custom.css" />
 
-    <script th:src="@{~/js/search.js}" type="application/javascript" defer="true"></script>
+    <script th:src="@{~/js/script.js}" type="application/javascript" defer="true"></script>
 
 </head>
 
@@ -67,14 +67,16 @@
             </div>
         </nav>
 
-        <div class="row" id="movies">
-            <div class="item col-xs-2 col-lg-2"th:each="movie : ${movieList}">
-                <div class="row list-group">
+        <div class="row">
+            <div class="item col-xs-2 col-lg-2" id="movies" th:each="movie : ${movieList}">
+                <div class="row list-group" >
                     <div class="item col-xs-10 col-lg-12" data-toggle="tooltip" title="" th:attr="title=${movie.getTitle() + ' ' + '(' + movie.getYear() + ')'}">
-                        <div class="thumbnail" >
-                            <img class="img-responsive" id="poster" src="" th:attr="src=${movie.getPoster()}" alt="Responsive image" />
+                        <div class="thumbnail">
+                            <a href="#" th:href="@{'~/movies/' + ${movie.getImdbID()}}">
+                                <img th:if="${movie.getPoster() != null}" class="img-responsive" id="poster" src="" th:attr="src=${movie.getPoster()}" alt="Responsive image" />
+                                <img th:if="${movie.getPoster() == null}" class="img-responsive" id="missing-poster"src="http://startyoungfinancial.com/wp-content/uploads/2015/05/default-image.png" >
+                            </a>
                         </div>
-
                     </div>
                 </div>
             </div>
