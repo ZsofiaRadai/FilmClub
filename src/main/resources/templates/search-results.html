@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/custom.css" />
 
-    <!--<script th:src="@{~/js/search.js}" type="application/javascript" defer="true"></script>-->
+    <script th:src="@{~/js/search.js}" type="application/javascript" defer="true"></script>
 
 </head>
 
@@ -67,14 +67,15 @@
             </div>
         </nav>
 
-        <div class="item col-xs-2 col-lg-2" th:each="movie : ${movieList}" id="movie">
-            <div id="products" class="row list-group">
-                <div class="item col-xs-10 col-lg-12">
-                    <div class="thumbnail" id="movies">
-                        <img class="group list-group-image" src="" th:attr="src=${movie.getPoster()}" alt="" />
-                        <div th:text="${movie.getTitle()}" ></div>
-                    </div>
+        <div class="row" id="movies">
+            <div class="item col-xs-2 col-lg-2"th:each="movie : ${movieList}">
+                <div class="row list-group">
+                    <div class="item col-xs-10 col-lg-12" data-toggle="tooltip" title="" th:attr="title=${movie.getTitle() + ' ' + '(' + movie.getYear() + ')'}">
+                        <div class="thumbnail" >
+                            <img class="img-responsive" id="poster" src="" th:attr="src=${movie.getPoster()}" alt="Responsive image" />
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>

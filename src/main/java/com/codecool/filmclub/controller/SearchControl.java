@@ -27,7 +27,6 @@ public class SearchControl {
     @RequestMapping (value = "/search")
     public String renderFilms(Model model, @RequestParam("title") String title) {
         JsonObject resultList = filmService.searchFilm(title);
-        List<String> posters = filmService.getPosters(resultList);
         List<Film> filmList = filmService.convertJsonToJavaObject(resultList);
         model.addAttribute("movieList", filmList);
         return "search-results";

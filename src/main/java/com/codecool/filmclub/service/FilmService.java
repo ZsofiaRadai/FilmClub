@@ -22,18 +22,8 @@ public class FilmService {
 
         RestTemplate restTemplate = new RestTemplate();
         String response = restTemplate.getForObject(URI, String.class);
-        Gson gson = new Gson();
         JsonObject jsonObject = new JsonParser().parse(response).getAsJsonObject();
         return jsonObject;
-    }
-
-    public List<String> getPosters(JsonObject jsonObject) {
-        List<String> posters = new ArrayList<>();
-        JsonArray movieList = jsonObject.get("Search").getAsJsonArray();
-        for (JsonElement movie: movieList) {
-            posters.add(movie.getAsJsonObject().get("Poster").toString().replace('"', ' '));
-        }
-        return posters;
     }
 
     public List<Film> convertJsonToJavaObject(JsonObject jsonObject) {

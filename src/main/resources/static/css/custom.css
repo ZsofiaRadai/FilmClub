@@ -2,13 +2,10 @@
     margin-top: 0%;
 }
 
-.movies {
-    float: right;
-    display: inline-flex;
+body {
+    background-color: yellowgreen;
 }
 
-.movie {
-    height: 100%;
-    width: 100%;
-    position: absolute;
+#poster {
+    height: 230px;
 }
