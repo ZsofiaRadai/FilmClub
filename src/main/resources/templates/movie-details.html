@@ -1,45 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<div th:include="index :: header">...</div>
+<div th:include="index :: header"></div>
 
 <body>
     <div class="container" >
-        <div th:include="index :: navbar"></div>
+        <div class="row">
+            <div th:include="index :: navbar"></div>
 
-        <!--<div class="item col-xs-6 col-lg-8">-->
-            <!--<div id="products" class="row list-group">-->
-                <!--<div class="item col-xs-3 col-lg-3">-->
-                    <!--<div class="thumbnail" id="pic">-->
-                        <!--<img class="group list-group-image" src="" th:attr="src=${movieDetails.getPoster()}" alt="" />-->
-                    <!--</div>-->
-                    <!--<div id="actors" th:text="${movieDetails.getActors()}">-->
-                    <!--</div>-->
-
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <div class="container">
-            <div class="item col-xs-6 col-lg-8">
-                <div class="paragraphs">
-                    <div class="row">
-                        <div class="span2">
-                            <div class="clearfix content-heading">
-                                <img class="pull-left" src="" th:attr="src=${movieDetails.getPoster()}"/>
-                                <h2 th:text="${movieDetails.getTitle()}"></h2>
-                                <div th:text="'Actors: ' + ${movieDetails.getActors()}"></div>
-                            </div>
-                        </div>
+            <div class="container">
+                <div class="item col-xs-10 col-lg-12" id="movie-details">
+                    <div class="item col-xs-4 col-lg-4">
+                        <img class="pull-left img-responsive" src="" th:attr="src=${movieDetails.getPoster()}"/>
+                    </div>
+                    <div class="item col-xs-6 col-lg-8 pull-right" id="movide-desc">
+                        <h2 th:text="${movieDetails.getTitle()}"></h2>
+                        <div th:text="'Actors: ' + ${movieDetails.getActors()}"></div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!--<div class="item col-xs-10 col-lg-12">-->
+        <!--<div id="products" class="row list-group">-->
+        <!--<div class="item col-xs-3 col-lg-3">-->
+        <!--<img class="pull-left" id="detailed-poster" src="" th:attr="src=${movieDetails.getPoster()}" align="left" />-->
+        <!--</div>-->
+        <!--<div class="container" id="movie-details">-->
+        <!--<div class="item col-xs-8 col-lg-8">-->
+        <!--<h2 th:text="${movieDetails.getTitle()}"></h2>-->
+        <!--<div id="actors" th:text="${movieDetails.getActors()}"></div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="container" id="movie-details">-->
+            <!--<div class="row">-->
+                <!--<div class="col-xs-2 col-lg-4">-->
+                    <!--<img class="pull-left" id="detailed-poster" src="" th:attr="src=${movieDetails.getPoster()}"/>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-xs-3 col-lg-6">-->
+                <!--<div class="row">-->
+                    <!--<h2 th:text="${movieDetails.getTitle()}"></h2>-->
+                    <!--<div th:text="'Actors: ' + ${movieDetails.getActors()}"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
     </div>
 
-<footer class="container-fluid text-center">
+    <footer class="container-fluid text-center">
 
-</footer>
+    </footer>
 
 </body>
 

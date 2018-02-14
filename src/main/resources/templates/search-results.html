@@ -7,10 +7,10 @@
     <div class="container" >
         <div th:include="index :: navbar"></div>
 
-        <div class="row">
-            <div class="item col-xs-2 col-lg-2" id="movies" th:each="movie : ${movieList}">
-                <div class="row list-group" >
-                    <div class="item col-xs-10 col-lg-12" data-toggle="tooltip" title="" th:attr="title=${movie.getTitle() + ' ' + '(' + movie.getYear() + ')'}">
+        <div class="row" id="search-results">
+            <div class="col-xs-6 col-md-3 col-lg-2" id="movies" th:each="movie : ${movieList}">
+                <div class="list-group" >
+                    <div class="item" data-toggle="tooltip" title="" th:attr="title=${movie.getTitle() + ' ' + '(' + movie.getYear() + ')'}">
                         <div class="thumbnail">
                             <a href="#" th:href="@{'~/movies/' + ${movie.getImdbID()}}">
                                 <img th:if="${movie.getPoster() != null}" class="img-responsive" id="poster" src="" th:attr="src=${movie.getPoster()}" alt="Responsive image" />
@@ -22,7 +22,6 @@
             </div>
         </div>
     </div>
-
 
     <footer class="container-fluid text-center">
 
