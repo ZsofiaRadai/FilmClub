@@ -11,43 +11,32 @@
             <div class="container">
                 <div class="item col-xs-10 col-lg-12" id="movie-details">
                     <div class="item col-xs-4 col-lg-4">
-                        <img class="pull-left img-responsive" src="" th:attr="src=${movieDetails.getPoster()}"/>
+                        <img class="pull-left img-responsive" id="detail-poster" src="" th:attr="src=${movieDetails.getPoster()}"/>
                     </div>
                     <div class="item col-xs-6 col-lg-8 pull-right" id="movide-desc">
-                        <h2 th:text="${movieDetails.getTitle()}"></h2>
-                        <div th:text="'Actors: ' + ${movieDetails.getActors()}"></div>
+                        <span >
+                            <h2 id="title-rating" th:text="${movieDetails.getTitle() + ' ' + '(' + movieDetails.getYear() + ')'}"></h2>
+                            <h3 id="rating" th:text="'Rating: ' + ${movieDetails.getImdbRating()}"></h3>
+                        </span>
+                        <p>
+                            <div th:text="${movieDetails.getRuntime() + ' | ' + movieDetails.getGenre() + ' | ' + movieDetails.getReleased() + ' | ' + movieDetails.getLanguage()}"> Runtime | Genre | Released | Language </div>
+                        </p>
+                        <p>
+                        <div th:text="'Rated: ' + ${movieDetails.getRated()}"></div>
+                        </p>
+                        <p>
+                            <div th:text="'Director: ' + ${movieDetails.getDirector()}"></div>
+                            <div th:text="'Writer: ' + ${movieDetails.getWriter()}"></div>
+                            <div th:text="'Actors: ' + ${movieDetails.getActors()}"></div>
+                        </p>
+                        <p>
+                            <div>Plot:</div>
+                            <div th:text="${movieDetails.getPlot()}"></div>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!--<div class="item col-xs-10 col-lg-12">-->
-        <!--<div id="products" class="row list-group">-->
-        <!--<div class="item col-xs-3 col-lg-3">-->
-        <!--<img class="pull-left" id="detailed-poster" src="" th:attr="src=${movieDetails.getPoster()}" align="left" />-->
-        <!--</div>-->
-        <!--<div class="container" id="movie-details">-->
-        <!--<div class="item col-xs-8 col-lg-8">-->
-        <!--<h2 th:text="${movieDetails.getTitle()}"></h2>-->
-        <!--<div id="actors" th:text="${movieDetails.getActors()}"></div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="container" id="movie-details">-->
-            <!--<div class="row">-->
-                <!--<div class="col-xs-2 col-lg-4">-->
-                    <!--<img class="pull-left" id="detailed-poster" src="" th:attr="src=${movieDetails.getPoster()}"/>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-xs-3 col-lg-6">-->
-                <!--<div class="row">-->
-                    <!--<h2 th:text="${movieDetails.getTitle()}"></h2>-->
-                    <!--<div th:text="'Actors: ' + ${movieDetails.getActors()}"></div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
 
     </div>
 
