@@ -1,22 +1,19 @@
 package com.codecool.filmclub.controller;
 
-import com.codecool.filmclub.model.Film;
-import com.codecool.filmclub.service.FilmService;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.codecool.filmclub.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-@Controller
+@RestController
 public class SearchControl {
 
     @Autowired
-    FilmService filmService;
+    MovieService movieService;
 
     @GetMapping (value = "/")
     public String renderIndex(Model model) {
@@ -24,19 +21,17 @@ public class SearchControl {
     }
 
 
-    @GetMapping(value = "/search")
-    public String renderFilms(Model model, @RequestParam("title") String title) {
-        JsonObject resultList = filmService.searchFilm(title);
-        List<Film> filmList = filmService.convertJsonToJavaObject(resultList);
-        model.addAttribute("movieList", filmList);
-        return "search-results";
+    @GetMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String renderFilms(@RequestParam("title") String title) {
+        String resultList = movieService.searchMovie(title);
+        System.out.println(resultList);
+        System.out.println(resultList.getClass());
+        return resultList;
     }
 
     @GetMapping(value = "/movies/{imdbID}")
     public String renderMovieDetails(Model model, @PathVariable("imdbID") String imdbID) {
-        JsonObject jsonObject = filmService.getMovieDetails(imdbID);
-        Film movieDetails = filmService.convertJsonFilmToJavaFilm(jsonObject);
-        model.addAttribute("movieDetails", movieDetails);
-        return "movie-details";
+        String result = movieService.getMovieDetails(imdbID);
+        return result;
     }
 }

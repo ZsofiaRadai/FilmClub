@@ -1,6 +1,6 @@
 package com.codecool.filmclub.model;
 
-public class Film {
+public class Movie {
 
     private String imdbID;
     private String Title;
@@ -20,7 +20,7 @@ public class Film {
     private String Country;
     private float imdbRating;
 
-    public Film(String title, String year, String imdbID, String type, String poster) {
+    public Movie(String title, String year, String imdbID, String type, String poster) {
         this.Title = title;
         this.Year = year;
         this.imdbID = imdbID;
@@ -28,7 +28,7 @@ public class Film {
         this.Poster = poster;
     }
 
-    public Film(String imdbID, String title, String year, String type, String poster, String rated, String released, String runtime, String genre, String director, String writer, String actors, String plot, String language, String country, float imdbRating) {
+    public Movie(String imdbID, String title, String year, String type, String poster, String rated, String released, String runtime, String genre, String director, String writer, String actors, String plot, String language, String country, float imdbRating) {
         this(title, year, imdbID, type, poster);
         this.Rated = rated;
         this.Released = released;
@@ -109,7 +109,7 @@ public class Film {
 
     @Override
     public String toString() {
-        return "Film{" +
+        return "Movie{" +
                 "id=" + imdbID +
                 ", title='" + Title + '\'' +
                 ", year='" + Year + '\'' +
