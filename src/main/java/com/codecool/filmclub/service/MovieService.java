@@ -17,6 +17,7 @@ import java.util.List;
 @Service
 public class MovieService {
 
+    //TODO: send apikey in header
     private final String OMDB_URL = "http://www.omdbapi.com/?apikey=ac3c14bf&";
 
     public String searchMovie(String title) {
