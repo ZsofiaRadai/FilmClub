@@ -1,4 +1,4 @@
-package com.codecool.filmclub.configuration;
+package com.mybusiness.filmclub.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
