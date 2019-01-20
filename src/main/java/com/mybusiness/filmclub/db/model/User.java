@@ -31,6 +31,9 @@ public class User {
     @Column(name = "registration")
     private Date registrationDate;
 
+    @Column
+    private String role;
+
     @PrePersist
     protected void onCreate() {
         registrationDate =  new Date();
